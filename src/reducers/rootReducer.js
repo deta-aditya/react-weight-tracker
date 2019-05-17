@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import simpleReducer from './simpleReducer'
+import selectedEntry from './selectedEntry'
+import entries from './entries'
 
 export default combineReducers({
-	simpleReducer
+	entries, 
+	selectedEntry,
 })

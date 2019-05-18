@@ -1,7 +1,7 @@
 export default (state = {}, { type, payload }) => {
 	switch (type) {
 
-		case 'SET_SELECTED_ENTRY':
+		case 'SELECT_ENTRY':
 			return payload.entry
 
 		case 'ADD_WEIGHT':
@@ -18,5 +18,6 @@ export default (state = {}, { type, payload }) => {
 
 		default:
 			return state
+			
 	}
 }

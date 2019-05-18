@@ -4,6 +4,9 @@ export default (state = {}, { type, payload }) => {
 		case 'SELECT_ENTRY':
 			return payload.entry
 
+		case 'UNSET_ENTRY':
+			return {}
+
 		case 'ADD_WEIGHT':
 			return {
 				...state,

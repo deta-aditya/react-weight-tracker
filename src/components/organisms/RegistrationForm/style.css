@@ -1,0 +1,7 @@
+.RegistrationForm {
+	display: flex;
+	width: 300px;
+	margin: auto;
+	justify-content: center;
+	flex-direction: column;
+}

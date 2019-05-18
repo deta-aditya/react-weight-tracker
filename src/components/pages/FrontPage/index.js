@@ -1,25 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { selectEntry } from '../../../actions'
+import RegistrationForm from '../../organisms/RegistrationForm'
 
 function FrontPage(props) {
 	return (
 		<div className="FrontPage">
-			<h1>Front Page</h1>
+			<h1>Weight Tracker</h1>
 			<p>Create a new entry</p>	
+			<RegistrationForm />
 		</div>
 	)
 }
-
-const mapStateToProps = state => ({
-	entries: state.entries,
-})
-
-const mapDispatchToProps = dispatch => ({
-	selectEntry: () => dispatch(selectEntry()),
-})
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps,
-)(FrontPage)
+export default FrontPage

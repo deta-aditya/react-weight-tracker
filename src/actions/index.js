@@ -8,6 +8,7 @@ export const addEntry = payload => dispatch => {
 		type: 'ADD_ENTRY',
 		payload,
 	})
+	return Promise.resolve()
 }
 
 export const updateEntry = entry => dispatch => {
@@ -42,6 +43,13 @@ export const selectEntry = entry => dispatch => {
 	dispatch({
 		type: 'SELECT_ENTRY',
 		payload: { entry },
+	})
+}
+
+export const unsetEntry = () => dispatch => {
+	dispatch({
+		type: 'UNSET_ENTRY',
+		payload: {},
 	})
 }
 

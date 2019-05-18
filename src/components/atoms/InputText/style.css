@@ -1,0 +1,15 @@
+.InputText {
+	display: flex;
+	text-align: left;
+	margin-bottom: 1em;
+}
+
+.InputText label {
+	margin-right: 1em;
+	width: 100px;
+	text-align: right;
+}
+
+.InputText input {
+	flex-grow: 1;
+}

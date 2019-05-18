@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { isEmpty } from 'lodash'
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux' 
 import MainPage from './components/pages/MainPage'
 import FrontPage from './components/pages/FrontPage'
 

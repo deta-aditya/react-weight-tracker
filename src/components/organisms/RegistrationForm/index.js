@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import InputText from '../../atoms/InputText'
+import InputText from '../../molecules/InputText'
 import { addEntry, selectEntry } from '../../../actions'
 import './style.css'
 

@@ -1,7 +1,9 @@
-export const setChartType = type => dispatch => dispatch({ 
-	type: 'SET_CHART_TYPE', 
-	payload: { type },
-})
+export const setChartType = type => dispatch => {
+	dispatch({ 
+		type: 'SET_CHART_TYPE', 
+		payload: { type },
+	})
+}
 
 export const addEntry = payload => dispatch => {
 	dispatch({

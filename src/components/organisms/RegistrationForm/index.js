@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import InputText from '../../molecules/InputText'
-import { addEntry, selectEntry } from '../../../actions'
+import { signUp } from '../../../actions'
 import './style.css'
 
 class RegistrationForm extends Component {
@@ -21,21 +21,11 @@ class RegistrationForm extends Component {
 		}
 
 		const signUp = () => {
-			const foundEntry = this.props.entries.find(entry => {
-				return entry.name === this.state.name
-			}) 
-
-			if (! foundEntry) {
-				const newEntry = {
-					name: this.state.name,
-					initialWeight: this.state.initialWeight,
-					takenAt: Date.now()
-				}
-
-				this.props.addEntry(newEntry).then(() => signUp())
-			} else {
-				this.props.selectEntry(foundEntry)
-			}
+			this.props.signUp({
+				name: this.state.name,
+				initialWeight: this.state.initialWeight,
+				takenAt: Date.now()
+			})
 		}
 
 		return (
@@ -61,8 +51,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	addEntry: entry => dispatch(addEntry(entry)),
-	selectEntry: entry => dispatch(selectEntry(entry)),
+	signUp: entry => dispatch(signUp(entry))
 })
 
 export default connect(

@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '../../atoms/Icon'
+import AnchoredIcon from '../../molecules/AnchoredIcon'
 import './style.css'
 
 function NavigationBar(props) {
@@ -10,9 +10,7 @@ function NavigationBar(props) {
 			</h1>
 			<div className="navigation-buttons">
 				<button>Add Weight</button>
-				<a href="#">
-					<Icon icon="sign-out-alt" size="lg" />
-				</a>
+				<AnchoredIcon icon="sign-out-alt" size="lg" />
 			</div>
 		</nav>
 	)

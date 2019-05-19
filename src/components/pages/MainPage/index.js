@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { unsetEntry } from '../../../actions'
 import NavigationBar from '../../organisms/NavigationBar'
+import './style.css'
 
 function MainPage(props) {
 	return (

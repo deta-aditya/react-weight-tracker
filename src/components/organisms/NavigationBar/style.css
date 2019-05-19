@@ -1,9 +1,15 @@
 .NavigationBar {
-  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.NavigationBar .navigation-container {
+	display: flex;
   padding: 0.7em;
   justify-content: space-between;
 	align-items: center;
-  border-bottom: 1px solid #ccc;
 }
 
 .NavigationBar .brand {

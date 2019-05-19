@@ -30,6 +30,7 @@ class RegistrationForm extends Component {
 
 		return (
 			<div className="RegistrationForm">
+				<p className="form-title">Create a new entry</p>
 				<InputText 
 					label="Name" 
 					value={this.state.name} 

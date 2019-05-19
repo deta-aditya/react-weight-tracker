@@ -5,7 +5,7 @@ import MainPage from './components/pages/MainPage'
 import FrontPage from './components/pages/FrontPage'
 
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 function App(props) {
   const page = isEmpty(props.entry) ? <FrontPage /> : <MainPage />

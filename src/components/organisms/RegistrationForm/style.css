@@ -1,7 +1,13 @@
 .RegistrationForm {
 	display: flex;
 	width: 300px;
+	padding: 1em;
+	border: 1px solid #ccc;
 	margin: auto;
 	justify-content: center;
 	flex-direction: column;
+}
+
+.FrontPage .form-title {
+	margin-top: 0;
 }

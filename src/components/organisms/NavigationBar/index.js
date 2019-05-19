@@ -1,16 +1,17 @@
 import React from 'react'
 import Icon from '../../atoms/Icon'
+import './style.css'
 
 function NavigationBar(props) {
 	return (
 		<nav className="NavigationBar">
-			<div className="brand">
-				<h1>Weight Tracker</h1>
-			</div>
+			<h1 className="brand">
+				Weight Tracker
+			</h1>
 			<div className="navigation-buttons">
 				<button>Add Weight</button>
 				<a href="#">
-					<Icon icon="sign-out-alt" />
+					<Icon icon="sign-out-alt" size="lg" />
 				</a>
 			</div>
 		</nav>

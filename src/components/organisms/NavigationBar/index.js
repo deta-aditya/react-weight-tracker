@@ -1,8 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { unsetEntry } from '../../../actions'
 import AnchoredIcon from '../../molecules/AnchoredIcon'
 import './style.css'
 
 function NavigationBar(props) {
+	const signOut = e => {
+		e.preventDefault()
+		props.signOut()
+	}
+
 	return (
 		<nav className="NavigationBar">
 			<div className="navigation-container">
@@ -11,11 +18,21 @@ function NavigationBar(props) {
 				</h1>
 				<div className="navigation-buttons">
 					<button>Add Weight</button>
-					<AnchoredIcon icon="sign-out-alt" size="lg" />
+					<AnchoredIcon 
+						icon="sign-out-alt" 
+						size="lg" 
+						onClick={signOut} />
 				</div>
 			</div>
 		</nav>
 	)
 }
 
-export default NavigationBar
+const mapDispatchToProps = dispatch => ({
+	signOut: () => dispatch(unsetEntry())
+})
+
+export default connect(
+	null, 
+	mapDispatchToProps
+)(NavigationBar)

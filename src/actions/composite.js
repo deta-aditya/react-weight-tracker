@@ -7,8 +7,10 @@ export const signUp = entry => (dispatch, getState) => {
 
 	if (! foundEntry) {
 		const newEntry = { ...entry }
-		dispatch(addEntry(newEntry)).then(() => dispatch(signUp(newEntry)))
+		return dispatch(addEntry(newEntry))
+			.then(() => dispatch(signUp(newEntry)))
 	} else {
 		dispatch(selectEntry(foundEntry))
+		return Promise.resolve()
 	}
 }

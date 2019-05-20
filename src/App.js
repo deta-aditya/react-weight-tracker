@@ -1,6 +1,7 @@
 import React from 'react'
-import { isEmpty } from 'lodash'
-import { connect } from 'react-redux' 
+// import { isEmpty } from 'lodash'
+import { Switch, Route } from 'react-router-dom'
+
 import MainPage from './components/pages/MainPage'
 import FrontPage from './components/pages/FrontPage'
 
@@ -8,19 +9,14 @@ import FrontPage from './components/pages/FrontPage'
 // import './App.css';
 
 function App(props) {
-  const page = isEmpty(props.entry) ? <FrontPage /> : <MainPage />
-
   return (
     <div className="App">
-      {page}
+    	<Switch>
+    		<Route exact path="/" component={FrontPage} />
+    		<Route path="/main" component={MainPage} />
+    	</Switch>
     </div>
   )
 }
 
-const mapStateToProps = state => ({
-  entry: state.selectedEntry,
-})
-
-export default connect(
-  mapStateToProps,
-)(App);
+export default App

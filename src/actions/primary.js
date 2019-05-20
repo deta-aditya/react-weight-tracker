@@ -47,6 +47,7 @@ export const selectEntry = entry => dispatch => {
 
 export const unsetEntry = () => dispatch => {
 	dispatch({ type: 'UNSET_ENTRY' })
+	return Promise.resolve()
 }
 
 export const addWeight = payload => dispatch => {

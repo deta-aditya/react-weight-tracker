@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { unsetEntry } from '../../../actions'
 import AnchoredIcon from '../../molecules/AnchoredIcon'
 import './style.css'
@@ -7,7 +8,7 @@ import './style.css'
 function NavigationBar(props) {
 	const signOut = e => {
 		e.preventDefault()
-		props.signOut()
+		props.signOut().then(() => this.props.history.push('/'))
 	}
 
 	return (
@@ -32,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
 	signOut: () => dispatch(unsetEntry())
 })
 
-export default connect(
+export default withRouter(connect(
 	null, 
 	mapDispatchToProps
-)(NavigationBar)
+)(NavigationBar))

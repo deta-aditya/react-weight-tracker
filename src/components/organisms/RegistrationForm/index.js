@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import InputText from '../../molecules/InputText'
 import { signUp } from '../../../actions'
 import './style.css'
@@ -25,7 +26,7 @@ class RegistrationForm extends Component {
 				name: this.state.name,
 				initialWeight: this.state.initialWeight,
 				takenAt: Date.now()
-			})
+			}).then(() => this.props.history.push('/main'))
 		}
 
 		return (
@@ -55,7 +56,7 @@ const mapDispatchToProps = dispatch => ({
 	signUp: entry => dispatch(signUp(entry))
 })
 
-export default connect(
+export default withRouter(connect(
 	mapStateToProps, 
 	mapDispatchToProps
-)(RegistrationForm)
+)(RegistrationForm))

@@ -11,13 +11,18 @@ function MainPage(props) {
 		return next.quantity - prev.quantity 
 	})[0]
 
+	const latestTakenAt = new Date(latestWeight.takenAt)
+
 	return (
 		<div className="MainPage">
 			<NavigationBar />
 			<div className="container">
 				<HistoryBar />
 				<main className="content">
-					<h2 className="title">You weight {latestWeight.quantity}kg</h2>
+					<h2 className="title">
+						You weight {latestWeight.quantity}kg
+						<small>Last recorded at {latestTakenAt.toLocaleString()}</small>
+					</h2>
 					<p className="subtitle">Here is how you are doing:</p>
 				</main>
 			</div>

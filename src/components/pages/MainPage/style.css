@@ -14,6 +14,12 @@
 	margin: 0;
 }
 
+.MainPage .content .title small {
+	margin-left: 0.75em;
+	font-size: 0.6em;
+	color: #999;
+}
+
 .MainPage .content .subtitle {
 	margin: 0.5em 0 0;
 }

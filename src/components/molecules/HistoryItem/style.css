@@ -1,0 +1,9 @@
+.HistoryItem {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.4em;
+}
+
+.HistoryItem:not(:last-child) {
+	border-bottom: 1px dashed #999;
+}

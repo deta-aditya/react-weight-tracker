@@ -7,17 +7,17 @@ import NavigationBar from '../../organisms/NavigationBar'
 import './style.css'
 
 function MainPage(props) {
-	const latestWeight = [ ...props.entry.weights].sort((prev, next) => {
+	const sortedWeights = [ ...props.entry.weights].sort((prev, next) => {
 		return next.quantity - prev.quantity 
-	})[0]
-
+	})
+	const latestWeight = sortedWeights[0]
 	const latestTakenAt = new Date(latestWeight.takenAt)
 
 	return (
 		<div className="MainPage">
 			<NavigationBar entry={props.entry} />
 			<div className="container">
-				<HistoryBar />
+				<HistoryBar weights={sortedWeights} />
 				<main className="content">
 					<h2 className="title">
 						You weight {latestWeight.quantity}kg

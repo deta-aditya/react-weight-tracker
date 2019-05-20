@@ -22,6 +22,10 @@ const initialState = {
 		name: 'Kim Sejeong',
 		weights: [
 			{
+				quantity: 43,
+				takenAt: Date.now() + 1,
+			},
+			{
 				quantity: 45,
 				takenAt: Date.now(),
 			},

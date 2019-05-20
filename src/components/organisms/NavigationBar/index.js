@@ -18,6 +18,7 @@ function NavigationBar(props) {
 					Weight Tracker
 				</h1>
 				<div className="navigation-buttons">
+					<p className="identity">{props.entry.name}</p>
 					<button>Add Weight</button>
 					<AnchoredIcon 
 						icon="sign-out-alt" 

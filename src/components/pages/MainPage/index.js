@@ -15,7 +15,7 @@ function MainPage(props) {
 
 	return (
 		<div className="MainPage">
-			<NavigationBar />
+			<NavigationBar entry={props.entry} />
 			<div className="container">
 				<HistoryBar />
 				<main className="content">

@@ -21,6 +21,10 @@
 	align-items: baseline;
 }
 
+.NavigationBar .navigation-buttons .identity{
+  margin: 0;
+}
+
 .NavigationBar .navigation-buttons > *:not(:last-child) {
 	margin-right: 1em;
 }

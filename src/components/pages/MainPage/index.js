@@ -1,16 +1,26 @@
 import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux' 
+import HistoryBar from '../../organisms/HistoryBar'
 import ProtectedPage from '../../templates/ProtectedPage'
 import NavigationBar from '../../organisms/NavigationBar'
 import './style.css'
 
 function MainPage(props) {
+	const latestWeight = [ ...props.entry.weights].sort((prev, next) => {
+		return next.quantity - prev.quantity 
+	})[0]
+
 	return (
 		<div className="MainPage">
 			<NavigationBar />
-			<h1>Weight Tracker</h1>
-			<p>Hello {props.entry.name}! Current Weight: {props.entry.weights[0].quantity}</p>
+			<div className="container">
+				<HistoryBar />
+				<main className="content">
+					<h2 className="title">You weight {latestWeight.quantity}kg</h2>
+					<p className="subtitle">Here is how you are doing:</p>
+				</main>
+			</div>
 		</div>
 	)
 }

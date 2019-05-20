@@ -1,3 +1,19 @@
 .MainPage {
 	margin-top: 60px;
 }
+
+.MainPage .container {
+	display: flex;
+}
+
+.MainPage .content {
+	padding: 1em;
+}
+
+.MainPage .content .title {
+	margin: 0;
+}
+
+.MainPage .content .subtitle {
+	margin: 0.5em 0 0;
+}

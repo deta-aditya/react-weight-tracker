@@ -1,15 +1,11 @@
 import React from 'react'
-import { isEmpty } from 'lodash'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { compose } from 'redux'
+import { connect } from 'react-redux' 
+import ProtectedPage from '../../templates/ProtectedPage'
 import NavigationBar from '../../organisms/NavigationBar'
 import './style.css'
 
 function MainPage(props) {
-	if (isEmpty(props.entry)) {
-		return <Redirect to="/" />
-	}
-
 	return (
 		<div className="MainPage">
 			<NavigationBar />
@@ -23,4 +19,7 @@ const mapStateToProps = state => ({
 	entry: state.selectedEntry
 })
 
-export default connect(mapStateToProps)(MainPage)
+export default compose(
+	ProtectedPage,
+	connect(mapStateToProps),
+)(MainPage)

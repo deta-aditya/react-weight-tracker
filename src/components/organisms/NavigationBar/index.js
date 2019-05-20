@@ -8,7 +8,7 @@ import './style.css'
 function NavigationBar(props) {
 	const signOut = e => {
 		e.preventDefault()
-		props.signOut().then(() => this.props.history.push('/'))
+		props.signOut().then(() => props.history.push('/'))
 	}
 
 	return (

@@ -8,7 +8,13 @@ function HistoryBar(props) {
 			<h3 className="title">History</h3>
 			<div className="history-list">
 				{
-					props.weights.map(weight => <HistoryItem weight={weight} />)
+					props.weights.map((weight, index) => {
+						return (
+							<HistoryItem 
+								weight={weight} 
+								key={index.toString()} />
+						)
+					})
 				}
 			</div>
 		</aside>

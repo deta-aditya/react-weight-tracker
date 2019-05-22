@@ -8,7 +8,7 @@ import './style.css'
 
 function MainPage(props) {
 	const sortedWeights = [ ...props.entry.weights].sort((prev, next) => {
-		return next.quantity - prev.quantity 
+		return next.takenAt - prev.takenAt
 	})
 	const latestWeight = sortedWeights[0]
 	const latestTakenAt = new Date(latestWeight.takenAt)

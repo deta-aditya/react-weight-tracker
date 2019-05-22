@@ -26,5 +26,5 @@
 }
 
 .NavigationBar .navigation-buttons > *:not(:last-child) {
-	margin-right: 1em;
+	margin-right: 0.8em;
 }

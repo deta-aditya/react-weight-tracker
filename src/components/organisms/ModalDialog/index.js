@@ -1,7 +1,16 @@
 import React from 'react'
+import { isEmpty } from 'lodash'
 import { connect } from 'react-redux'
 import { closeModal } from '../../../actions'
 import './style.css'
+
+// Vue's class API-like function
+function objectToClasses(classes) {
+	return Object.entries(classes)
+		.filter(([key, value]) => value)
+		.map(([key, value]) => key)
+		.join(' ')
+}
 
 function ModalDialog(props) {
 	const onModalClose = event => {
@@ -9,12 +18,13 @@ function ModalDialog(props) {
 		props.close()
 	}
 
-	if (props.modals === null) {
-		return <div></div>
-	}
+	const classes = objectToClasses({
+		'ModalDialog': true,
+		'visible': ! isEmpty(props.modals),
+	})
 
 	return (
-		<div className="ModalDialog">
+		<div className={classes}>
 			<div className="dialog">
 				<header className="dialog-header">
 					<h3 className="title">{props.modals.title}</h3>

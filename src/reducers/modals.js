@@ -1,11 +1,14 @@
-export default (state = null, { type, payload }) => {
+export default (state = {}, { type, payload }) => {
 	switch (type) {
 
 		case 'OPEN_MODAL':
-			return payload.modal
+			return {
+				title: payload.modal.title,
+				content: payload.modal.content,
+			}
 
 		case 'CLOSE_MODAL':
-			return null
+			return {}
 
 		default:
 			return state

@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '../../atoms/Icon'
+import BaseIcon from '../../atoms/BaseIcon'
 
 function AnchoredIcon(props) {
 	const httpReference = props.href || ''
@@ -8,7 +8,7 @@ function AnchoredIcon(props) {
 
 	return (
 		<a href={httpReference} onClick={onClickHandler}>
-			<Icon 
+			<BaseIcon 
 				icon={props.icon} 
 				size={props.size} />
 		</a>

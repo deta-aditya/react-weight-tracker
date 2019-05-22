@@ -55,6 +55,7 @@ export const addWeight = payload => dispatch => {
 		type: 'ADD_WEIGHT',
 		payload,
 	})
+	return Promise.resolve()
 }
 
 export const pushToast = payload => dispatch => {

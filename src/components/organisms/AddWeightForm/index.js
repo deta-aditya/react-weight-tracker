@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addWeight, closeModal } from '../../../actions'
 import InputText from '../../molecules/InputText'
 
 class AddWeightForm extends Component {
 	state = {
-		quantity: '',
+		quantity: 0,
 		takenAt: '',
 	}
 
@@ -15,7 +17,10 @@ class AddWeightForm extends Component {
 		}
 
 		const addWeight = () => {
-
+			this.props.addWeight({
+				quantity: this.state.quantity,
+				takenAt: this.state.takenAt,
+			}).then(() => this.props.closeModal())
 		}
 
 		return (
@@ -36,4 +41,12 @@ class AddWeightForm extends Component {
 	}
 }
 
-export default AddWeightForm
+const mapDispacthToProps = dispatch => ({
+	addWeight: weight => dispatch(addWeight(weight)),
+	closeModal: () => dispatch(closeModal()),
+})
+
+export default connect(
+	null,
+	mapDispacthToProps,
+)(AddWeightForm)

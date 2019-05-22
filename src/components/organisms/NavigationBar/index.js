@@ -1,14 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { unsetEntry } from '../../../actions'
+import { openModal, unsetEntry } from '../../../actions'
 import AnchoredIcon from '../../molecules/AnchoredIcon'
+import AddWeightForm from '../AddWeightForm'
 import './style.css'
 
 function NavigationBar(props) {
 	const signOut = e => {
 		e.preventDefault()
 		props.signOut().then(() => props.history.push('/'))
+	}
+
+	const openAddWeightModal = () => {
+		props.openModal({
+			title: 'Add Weight',
+			content: <AddWeightForm />,
+		})
 	}
 
 	return (
@@ -19,7 +27,9 @@ function NavigationBar(props) {
 				</h1>
 				<div className="navigation-buttons">
 					<p className="identity">{props.entry.name}</p>
-					<button>Add Weight</button>
+					<button onClick={openAddWeightModal}>
+						Add Weight
+					</button>
 					<AnchoredIcon 
 						icon="sign-out-alt" 
 						size="lg" 
@@ -31,7 +41,8 @@ function NavigationBar(props) {
 }
 
 const mapDispatchToProps = dispatch => ({
-	signOut: () => dispatch(unsetEntry())
+	openModal: modal => dispatch(openModal(modal)),
+	signOut: () => dispatch(unsetEntry()),
 })
 
 export default withRouter(connect(

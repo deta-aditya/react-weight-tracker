@@ -1,6 +1,6 @@
 .HistoryBar {
-	width: 200px;
-	min-height: 85vh;
+	width: 250px;
+	min-height: calc(100vh - 60px);
 	padding: 1em;
 	border-right: 1px solid #ccc;
 }

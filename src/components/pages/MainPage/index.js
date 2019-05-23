@@ -2,6 +2,7 @@ import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux' 
 import HistoryBar from '../../organisms/HistoryBar'
+import HistoryChart from '../../organisms/HistoryChart'
 import ProtectedPage from '../../templates/ProtectedPage'
 import NavigationBar from '../../organisms/NavigationBar'
 import './style.css'
@@ -24,6 +25,7 @@ function MainPage(props) {
 						<small>Last recorded at {latestTakenAt.toLocaleString()}</small>
 					</h2>
 					<p className="subtitle">Here is how you are doing:</p>
+					<HistoryChart />
 				</main>
 			</div>
 		</div>

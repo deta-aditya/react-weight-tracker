@@ -8,6 +8,7 @@
 
 .MainPage .content {
 	padding: 1em;
+	flex-grow: 1;
 }
 
 .MainPage .content .title {

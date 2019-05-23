@@ -9,6 +9,10 @@
 	margin: 0;
 }
 
-.HistoryBar .history-list {
+.HistoryBar .filter {
+	width: 100%;
+}
+
+.HistoryBar .filter, .HistoryBar .history-list {
 	margin-top: 0.8em;
 }

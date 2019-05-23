@@ -6,7 +6,7 @@ import InputText from '../../molecules/InputText'
 class AddWeightForm extends Component {
 	state = {
 		quantity: 0,
-		takenAt: '',
+		takenAt: Date.now(),
 	}
 
 	render() {
@@ -32,7 +32,7 @@ class AddWeightForm extends Component {
 				<InputText 
 					label="Taken At" 
 					value={this.state.takenAt} 
-					onChange={value => setFormValue('takenAt', value)} />
+					onChange={value => setFormValue('takenAt', Number(value))} />
 				<div style={{ textAlign: 'right' }}>
 					<button onClick={() => addWeight()}>Add Weight</button>
 				</div>

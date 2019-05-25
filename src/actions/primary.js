@@ -3,6 +3,7 @@ export const setChartType = type => dispatch => {
 		type: 'SET_CHART_TYPE', 
 		payload: { type },
 	})
+	return Promise.resolve()
 }
 
 export const addEntry = payload => dispatch => {

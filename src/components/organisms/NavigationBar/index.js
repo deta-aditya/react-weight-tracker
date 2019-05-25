@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { openModal, unsetEntry } from '../../../actions'
 import BaseIcon from '../../atoms/BaseIcon'
 import AddWeightForm from '../AddWeightForm'
+import ConfigurationForm from '../ConfigurationForm'
 import './style.css'
 
 function NavigationBar(props) {
@@ -18,6 +19,13 @@ function NavigationBar(props) {
 		})
 	}
 
+	const openConfigurationModal = () => {
+		props.openModal({
+			title: 'Configuration',
+			content: <ConfigurationForm />,
+		})
+	}
+
 	return (
 		<nav className="NavigationBar">
 			<div className="navigation-container">
@@ -28,6 +36,9 @@ function NavigationBar(props) {
 					<p className="identity">{props.entry.name}</p>
 					<button onClick={openAddWeightModal}>
 						Add Weight
+					</button>
+					<button onClick={openConfigurationModal}>
+						<BaseIcon icon="cog" />
 					</button>
 					<button onClick={signOut}>
 						<BaseIcon icon="sign-out-alt" />

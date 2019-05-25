@@ -1,0 +1,11 @@
+.ConfigurationForm h4, .ConfigurationForm p {
+	margin: 0;
+}
+
+.ConfigurationForm h4 {
+	margin-bottom: 0.25em;
+}
+
+.ConfigurationForm p {
+	margin-bottom: 1em;
+}

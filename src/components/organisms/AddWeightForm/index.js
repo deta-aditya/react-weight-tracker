@@ -1,44 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
 import { addWeight, closeModal } from '../../../actions'
 import InputText from '../../molecules/InputText'
+import StatefulForm from '../../templates/StatefulForm'
 
-class AddWeightForm extends Component {
-	state = {
-		quantity: 0,
-		takenAt: Date.now(),
-	}
-
-	render() {
-		const setFormValue = (name, value) => {
-			this.setState({ 
-				[name]: value 
-			})
-		}
-
-		const addWeight = () => {
-			this.props.addWeight({
-				quantity: this.state.quantity,
-				takenAt: this.state.takenAt,
-			}).then(() => this.props.closeModal())
-		}
-
-		return (
-			<div className="AddWeightForm">
-				<InputText 
-					label="Quantity (kg)" 
-					value={this.state.quantity} 
-					onChange={value => setFormValue('quantity', Number(value))} />
-				<InputText 
-					label="Taken At" 
-					value={this.state.takenAt} 
-					onChange={value => setFormValue('takenAt', Number(value))} />
-				<div style={{ textAlign: 'right' }}>
-					<button onClick={() => addWeight()}>Add Weight</button>
-				</div>
+function AddWeightForm(props) {
+	return (
+		<div className="AddWeightForm">
+			<InputText 
+				label="Quantity (kg)" 
+				value={props.state.quantity} 
+				onChange={props.handleInputChange('quantity')} />
+			<InputText 
+				label="Taken At" 
+				value={props.state.takenAt} 
+				onChange={props.handleInputChange('takenAt')} />
+			<div style={{ textAlign: 'right' }}>
+				<button type="submit">Add Weight</button>
 			</div>
-		)
-	}
+		</div>
+	)
+}
+
+const initialState = props => ({
+	quantity: 0,
+	takenAt: Date.now(),
+})
+
+const onFormSubmit = (props, state) => {
+	props.addWeight({
+		quantity: state.quantity,
+		takenAt: state.takenAt,
+	}).then(() => props.closeModal())
 }
 
 const mapDispacthToProps = dispatch => ({
@@ -46,7 +40,7 @@ const mapDispacthToProps = dispatch => ({
 	closeModal: () => dispatch(closeModal()),
 })
 
-export default connect(
-	null,
-	mapDispacthToProps,
+export default compose(
+	connect(null,	mapDispacthToProps),
+	StatefulForm(initialState, onFormSubmit)
 )(AddWeightForm)

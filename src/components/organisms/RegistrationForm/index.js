@@ -1,51 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import InputText from '../../molecules/InputText'
 import { signUp } from '../../../actions'
+import InputText from '../../molecules/InputText'
+import StatefulForm from '../../templates/StatefulForm'
 import './style.css'
 
-class RegistrationForm extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			name: '',
-			initialWeight: 0,
-		}
-	}
-
-	render() {
-		const setFormValue = (name, value) => {
-			this.setState({ 
-				[name]: value 
-			})
-		}
-
-		const signUp = () => {
-			this.props.signUp({
-				name: this.state.name,
-				initialWeight: this.state.initialWeight,
-				takenAt: Date.now()
-			}).then(() => this.props.history.push('/main'))
-		}
-
-		return (
-			<div className="RegistrationForm">
-				<p className="form-title">Create a new entry</p>
-				<InputText 
-					label="Name" 
-					value={this.state.name} 
-					onChange={value => setFormValue('name', value)} />
-				<InputText 
-					label="Initial Weight" 
-					value={this.state.initialWeight} 
-					onChange={value => setFormValue('initialWeight', Number(value))} />
-				<div style={{ textAlign: 'right' }}>
-					<button onClick={() => signUp()}>Continue</button>
-				</div>
+function RegistrationForm(props) {
+	return (
+		<div className="RegistrationForm">
+			<p className="form-title">Create a new entry</p>
+			<InputText 
+				label="Name"
+				value={props.state.name}
+				onChange={props.handleInputChange('name')} />
+			<InputText 
+				label="Initial Weight" 
+				value={props.state.initialWeight}
+				onChange={props.handleInputChange('initialWeight')} />
+			<div style={{ textAlign: 'right' }}>
+				<button type="submit">Continue</button>
 			</div>
-		)
-	}
+		</div>
+	)
+}
+
+const initialState = props => ({
+	name: '',
+	initialWeight: 0,
+})
+
+const onFormSubmit = (props, state) => {
+	props.signUp({
+		name: state.name,
+		initialWeight: state.initialWeight,
+		takenAt: Date.now()
+	}).then(() => props.history.push('/main'))
 }
 
 const mapStateToProps = state => ({
@@ -56,7 +47,8 @@ const mapDispatchToProps = dispatch => ({
 	signUp: entry => dispatch(signUp(entry))
 })
 
-export default withRouter(connect(
-	mapStateToProps, 
-	mapDispatchToProps
-)(RegistrationForm))
+export default compose(
+	withRouter,
+	connect(mapStateToProps, mapDispatchToProps),
+	StatefulForm(initialState, onFormSubmit)
+)(RegistrationForm)

@@ -2,15 +2,8 @@ import React from 'react'
 import { isEmpty } from 'lodash'
 import { connect } from 'react-redux'
 import { closeModal } from '../../../actions'
+import { objectToClasses } from '../../../utilities'
 import './style.css'
-
-// Vue's class API-like function
-function objectToClasses(classes) {
-	return Object.entries(classes)
-		.filter(([key, value]) => value)
-		.map(([key, value]) => key)
-		.join(' ')
-}
 
 function ModalDialog(props) {
 	const onModalClose = event => {

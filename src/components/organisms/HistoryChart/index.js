@@ -1,14 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { formatDateForDisplay } from '../../../utilities'
 import { types } from '../../../reducers/chartSettings'
 import BaseChart from '../../atoms/BaseChart'
 import './style.css'
-
-// Utility function
-function formatDateForDisplay(date) {
-	const boxedDate = new Date(date)
-	return `${boxedDate.getDate()}/${boxedDate.getMonth() + 1}/${boxedDate.getFullYear()}`
-}
 
 function HistoryChart(props) {
 	const typeMap = {

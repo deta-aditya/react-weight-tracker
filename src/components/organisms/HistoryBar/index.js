@@ -1,14 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setHistoryFilter } from '../../../actions'
+import { formatDateForDisplay } from '../../../utilities'
 import HistoryItem from '../../molecules/HistoryItem'
 import './style.css'
-
-// Utility function
-function formatDateForDisplay(date) {
-	const boxedDate = new Date(date)
-	return `${boxedDate.getDate()}/${boxedDate.getMonth() + 1}/${boxedDate.getFullYear()}`
-}
 
 function HistoryBar(props) {
 	const displayedWeights = props.weights.filter(weight => {

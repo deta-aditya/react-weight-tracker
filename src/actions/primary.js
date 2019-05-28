@@ -19,6 +19,7 @@ export const updateEntry = entry => dispatch => {
 		type: 'UPDATE_ENTRY',
 		payload: { entry },
 	})
+	return Promise.resolve()
 }
 
 export const setHistoryFilter = query => dispatch => {
@@ -26,6 +27,7 @@ export const setHistoryFilter = query => dispatch => {
 		type: 'SET_HISTORY_FILTER',
 		payload: { query },
 	})
+	return Promise.resolve()
 }
 
 export const openModal = modal => dispatch => {
@@ -33,10 +35,12 @@ export const openModal = modal => dispatch => {
 		type: 'OPEN_MODAL',
 		payload: { modal },
 	})
+	return Promise.resolve()
 }
 
 export const closeModal = () => dispatch => {
 	dispatch({ type: 'CLOSE_MODAL' })
+	return Promise.resolve()
 }
 
 export const selectEntry = entry => dispatch => {
@@ -44,6 +48,7 @@ export const selectEntry = entry => dispatch => {
 		type: 'SELECT_ENTRY',
 		payload: { entry },
 	})
+	return Promise.resolve()
 }
 
 export const unsetEntry = () => dispatch => {
@@ -64,6 +69,7 @@ export const pushToast = payload => dispatch => {
 		type: 'PUSH_TOAST',
 		payload,
 	})
+	return Promise.resolve()
 }
 
 export const popToast = id => dispatch => {
@@ -71,4 +77,5 @@ export const popToast = id => dispatch => {
 		type: 'POP_TOAST',
 		payload: { id },
 	})
+	return Promise.resolve()
 }

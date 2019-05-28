@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { formatDateForDisplay } from '../../../utilities'
 import { types } from '../../../reducers/chartSettings'
 import BaseChart from '../../atoms/BaseChart'
 import './style.css'
@@ -11,6 +10,9 @@ function HistoryChart(props) {
 		[types.BAR_CHART]: 'bar',
 	}
 
+	const weights = [ ...props.weights]
+		.sort((prev, next) => prev.takenAt - next.takenAt)
+		
 	const config = {
 		id: 'HistoryChart',
 		width: '100%',
@@ -18,10 +20,10 @@ function HistoryChart(props) {
 		config: {
 			type: typeMap[props.chartType],
 			'scale-x': {
-				labels: props.weights.map(i => formatDateForDisplay(i.takenAt)),
+				labels: weights.map(i => i.takenAt.toLocaleDateString()),
 			},
 			series: [
-				{ values: props.weights.map(i => i.quantity) },
+				{ values: weights.map(i => i.quantity) },
 			],
 		},
 	}

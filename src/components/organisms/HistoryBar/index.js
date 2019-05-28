@@ -1,14 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setHistoryFilter } from '../../../actions'
-import { formatDateForDisplay } from '../../../utilities'
 import HistoryItem from '../../molecules/HistoryItem'
 import './style.css'
 
 function HistoryBar(props) {
 	const displayedWeights = props.weights.filter(weight => {
 		return weight.quantity.toString().includes(props.filter)
-			|| formatDateForDisplay(weight.takenAt).includes(props.filter)
+			|| weight.takenAt.toLocaleDateString().includes(props.filter)
 	})
 
 	return (

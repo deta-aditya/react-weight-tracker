@@ -35,7 +35,7 @@ const onFormSubmit = (props, state) => {
 	props.signUp({
 		name: state.name,
 		initialWeight: state.initialWeight,
-		takenAt: Date.now()
+		takenAt: new Date(),
 	}).then(() => props.history.push('/main'))
 }
 

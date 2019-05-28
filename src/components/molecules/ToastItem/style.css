@@ -1,0 +1,10 @@
+.ToastItem {
+	background: #333;
+	border-radius: 5px;
+	padding: 0.5em 0.75em;
+	margin-bottom: 0.5em;
+	color: #fff;
+	font-size: 1.15em;
+	max-width: 300px;
+	text-align: center;
+}

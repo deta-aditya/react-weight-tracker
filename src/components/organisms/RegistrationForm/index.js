@@ -2,7 +2,7 @@ import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { signUp } from '../../../actions'
+import { signUp, pushToastMessage } from '../../../actions'
 import TextInput from '../../molecules/TextInput'
 import StatefulForm from '../../templates/StatefulForm'
 import './style.css'
@@ -36,15 +36,17 @@ const onFormSubmit = (props, state) => {
 		name: state.name,
 		initialWeight: state.initialWeight,
 		takenAt: new Date(),
-	}).then(() => props.history.push('/main'))
+	}).then(() => props.pushToastMessage(`You are signed in as ${state.name}`))
+		.then(() => props.history.push('/main'))
 }
 
 const mapStateToProps = state => ({
-	entries: state.entries
+	entries: state.entries,
 })
 
 const mapDispatchToProps = dispatch => ({
-	signUp: entry => dispatch(signUp(entry))
+	pushToastMessage: toast => dispatch(pushToastMessage(toast)),
+	signUp: entry => dispatch(signUp(entry)),
 })
 
 export default compose(

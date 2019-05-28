@@ -2,7 +2,7 @@ import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { types } from '../../../reducers/chartSettings'
-import { setChartType, closeModal } from '../../../actions'
+import { setChartType, pushToastMessage, closeModal } from '../../../actions'
 import RadioInput from '../../molecules/RadioInput'
 import StatefulForm from '../../templates/StatefulForm'
 import './style.css'
@@ -39,6 +39,7 @@ const initialState = props => ({
 
 const onFormSubmit = (props, state) => {
 	props.setChartType(state.chartType)
+		.then(() => props.pushToastMessage(`Configuration saved`))
 		.then(() => props.closeModal())
 }
 
@@ -47,6 +48,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispacthToProps = dispatch => ({
+	pushToastMessage: toast => dispatch(pushToastMessage(toast)),
 	setChartType: type => dispatch(setChartType(type)),
 	closeModal: () => dispatch(closeModal()),
 })

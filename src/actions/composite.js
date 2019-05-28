@@ -1,4 +1,4 @@
-import { addEntry, selectEntry } from './primary'
+import { addEntry, selectEntry, pushToast } from './primary'
 
 export const signUp = entry => (dispatch, getState) => {
 	const foundEntry = getState().entries.find(entryRecord => {
@@ -13,4 +13,14 @@ export const signUp = entry => (dispatch, getState) => {
 		dispatch(selectEntry(foundEntry))
 		return Promise.resolve()
 	}
+}
+
+export const pushToastMessage = message => dispatch => {
+	dispatch(pushToast({
+		id: Date.now() + Math.floor(Math.random() * 100),
+		message,
+		duration: 3000,
+	}))
+
+	return Promise.resolve()
 }

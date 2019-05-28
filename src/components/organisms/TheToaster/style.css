@@ -1,0 +1,9 @@
+.TheToaster {
+	position: absolute;
+	bottom: 2.5em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column-reverse;
+	width: 100%;
+}

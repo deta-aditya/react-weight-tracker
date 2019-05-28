@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { addWeight, updateEntry, closeModal } from '../../../actions'
+import { addWeight, pushToastMessage, updateEntry, closeModal } from '../../../actions'
 import TextInput from '../../molecules/TextInput'
 import DateInput from '../../molecules/DateInput'
 import StatefulForm from '../../templates/StatefulForm'
@@ -34,6 +34,7 @@ const onFormSubmit = (props, state) => {
 		quantity: state.quantity,
 		takenAt: state.takenAt,
 	}).then(() => props.updateEntry(props.selectedEntry))
+		.then(() => props.pushToastMessage(`A new weight has been added`))
 		.then(props.closeModal)
 }
 
@@ -42,6 +43,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+	pushToastMessage: toast => dispatch(pushToastMessage(toast)),
 	addWeight: weight => dispatch(addWeight(weight)),
 	updateEntry: entry => dispatch(updateEntry(entry)),
 	closeModal: () => dispatch(closeModal()),

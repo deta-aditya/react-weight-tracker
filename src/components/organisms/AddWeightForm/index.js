@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { addWeight, closeModal } from '../../../actions'
+import { addWeight, updateEntry, closeModal } from '../../../actions'
 import InputText from '../../molecules/InputText'
 import DateInput from '../../molecules/DateInput'
 import StatefulForm from '../../templates/StatefulForm'
@@ -16,9 +16,7 @@ function AddWeightForm(props) {
 			<DateInput 
 				label="Taken At" 
 				value={props.state.takenAt} 
-				onChange={props.handleInputChange('takenAt', Date)}
-				// onChange={(selectedDates, dateStr, instance) => console.log(selectedDates, dateStr, instance)} 
-				/>
+				onChange={props.handleInputChange('takenAt', Date)} />
 			<div style={{ textAlign: 'right' }}>
 				<button type="submit">Add Weight</button>
 			</div>
@@ -35,15 +33,21 @@ const onFormSubmit = (props, state) => {
 	props.addWeight({
 		quantity: state.quantity,
 		takenAt: state.takenAt,
-	}).then(() => props.closeModal())
+	}).then(() => props.updateEntry(props.selectedEntry))
+		.then(props.closeModal)
 }
 
-const mapDispacthToProps = dispatch => ({
+const mapStateToProps = state => ({
+	selectedEntry: state.selectedEntry,
+})
+
+const mapDispatchToProps = dispatch => ({
 	addWeight: weight => dispatch(addWeight(weight)),
+	updateEntry: entry => dispatch(updateEntry(entry)),
 	closeModal: () => dispatch(closeModal()),
 })
 
 export default compose(
-	connect(null,	mapDispacthToProps),
+	connect(mapStateToProps, mapDispatchToProps),
 	StatefulForm(initialState, onFormSubmit)
 )(AddWeightForm)

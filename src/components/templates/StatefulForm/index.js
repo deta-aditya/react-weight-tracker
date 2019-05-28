@@ -1,4 +1,5 @@
 import React from 'react'
+import { convertToType } from '../../../utilities'
 
 function StatefulForm(initialState, onSubmit) {
 	return Component => class Anonymous extends React.Component {
@@ -13,9 +14,9 @@ function StatefulForm(initialState, onSubmit) {
 				onSubmit(this.props, this.state)
 			}
 
-			const handleInputChange = (name, convert = String) => value => {
+			const handleInputChange = (name, type = String) => value => {
 				this.setState({ 
-					[name]: convert(value)
+					[name]: convertToType(value, type)
 				})
 			}
 

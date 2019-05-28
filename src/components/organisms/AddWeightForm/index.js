@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { addWeight, closeModal } from '../../../actions'
 import InputText from '../../molecules/InputText'
+import DateInput from '../../molecules/DateInput'
 import StatefulForm from '../../templates/StatefulForm'
 
 function AddWeightForm(props) {
@@ -12,10 +13,12 @@ function AddWeightForm(props) {
 				label="Quantity (kg)" 
 				value={props.state.quantity} 
 				onChange={props.handleInputChange('quantity', Number)} />
-			<InputText 
+			<DateInput 
 				label="Taken At" 
 				value={props.state.takenAt} 
-				onChange={props.handleInputChange('takenAt')} />
+				onChange={props.handleInputChange('takenAt', Date)}
+				// onChange={(selectedDates, dateStr, instance) => console.log(selectedDates, dateStr, instance)} 
+				/>
 			<div style={{ textAlign: 'right' }}>
 				<button type="submit">Add Weight</button>
 			</div>
@@ -25,7 +28,7 @@ function AddWeightForm(props) {
 
 const initialState = props => ({
 	quantity: 0,
-	takenAt: Date.now(),
+	takenAt: new Date(),
 })
 
 const onFormSubmit = (props, state) => {

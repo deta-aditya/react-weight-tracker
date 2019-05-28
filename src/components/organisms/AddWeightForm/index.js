@@ -11,7 +11,7 @@ function AddWeightForm(props) {
 			<InputText 
 				label="Quantity (kg)" 
 				value={props.state.quantity} 
-				onChange={props.handleInputChange('quantity')} />
+				onChange={props.handleInputChange('quantity', Number)} />
 			<InputText 
 				label="Taken At" 
 				value={props.state.takenAt} 

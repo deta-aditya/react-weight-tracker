@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { addWeight, updateEntry, closeModal } from '../../../actions'
-import InputText from '../../molecules/InputText'
+import TextInput from '../../molecules/TextInput'
 import DateInput from '../../molecules/DateInput'
 import StatefulForm from '../../templates/StatefulForm'
 
 function AddWeightForm(props) {
 	return (
 		<div className="AddWeightForm">
-			<InputText 
+			<TextInput 
 				label="Quantity (kg)" 
 				value={props.state.quantity} 
 				onChange={props.handleInputChange('quantity', Number)} />

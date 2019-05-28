@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { signUp } from '../../../actions'
-import InputText from '../../molecules/InputText'
+import TextInput from '../../molecules/TextInput'
 import StatefulForm from '../../templates/StatefulForm'
 import './style.css'
 
@@ -11,11 +11,11 @@ function RegistrationForm(props) {
 	return (
 		<div className="RegistrationForm">
 			<p className="form-title">Create a new entry</p>
-			<InputText 
+			<TextInput 
 				label="Name"
 				value={props.state.name}
 				onChange={props.handleInputChange('name')} />
-			<InputText 
+			<TextInput 
 				label="Initial Weight" 
 				value={props.state.initialWeight}
 				onChange={props.handleInputChange('initialWeight', Number)} />

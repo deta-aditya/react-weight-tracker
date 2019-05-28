@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { types } from '../../../reducers/chartSettings'
 import { setChartType, closeModal } from '../../../actions'
-import InputRadio from '../../molecules/InputRadio'
+import RadioInput from '../../molecules/RadioInput'
 import StatefulForm from '../../templates/StatefulForm'
 import './style.css'
 
@@ -12,14 +12,14 @@ function ConfigurationForm(props) {
 		<div className="ConfigurationForm">
 			<h4>History Chart</h4>
 			<p>How would you like to display the chart?</p>
-			<InputRadio
+			<RadioInput
 				label="Bar Chart" 
 				name="HistoryChartType"
 				model={props.state.chartType}
 				value={types.BAR_CHART}
 				onChange={props.handleInputChange('chartType')}
 				/>
-			<InputRadio
+			<RadioInput
 				label="Line Chart" 
 				name="HistoryChartType"
 				model={props.state.chartType}

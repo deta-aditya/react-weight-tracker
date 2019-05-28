@@ -18,7 +18,7 @@ function RegistrationForm(props) {
 			<InputText 
 				label="Initial Weight" 
 				value={props.state.initialWeight}
-				onChange={props.handleInputChange('initialWeight')} />
+				onChange={props.handleInputChange('initialWeight', Number)} />
 			<div style={{ textAlign: 'right' }}>
 				<button type="submit">Continue</button>
 			</div>

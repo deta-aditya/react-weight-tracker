@@ -13,9 +13,9 @@ function StatefulForm(initialState, onSubmit) {
 				onSubmit(this.props, this.state)
 			}
 
-			const handleInputChange = name => value => {
+			const handleInputChange = (name, convert = String) => value => {
 				this.setState({ 
-					[name]: value 
+					[name]: convert(value)
 				})
 			}
 

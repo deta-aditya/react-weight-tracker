@@ -14,7 +14,7 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "yarn": "^1.16.0",
+    "yarn": "^1.17.3",
     "zingchart": "^2.8.6",
     "zingchart-react": "^1.0.6"
   },
